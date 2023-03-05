@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
+  const [scrollTop, setScrollTop] = useState<Boolean>(true);
+
+  const scrollToTop = () => {
+    if (window.pageYOffset == 0) {
+      setScrollTop(true);
+    } else {
+      setScrollTop(false);
+    }
+  };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", scrollToTop);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", scrollToTop);
+  //   };
+  // }, [scrollToTop]);
+
   return (
-    <header className="w-full bg-black h-20">
+    <header
+      className="w-full h-20 z-10 sticky top-0 bg-black"
+      // style={{
+      //   backgroundColor: `${scrollTop ? "transparent" : "black"}`,
+      //   transition: "0.1s ease-in",
+      // }}
+    >
       <nav className="flex w-full h-full p-5 text-white font-bold">
         <ul className="flex w-full h-full items-center justify-between">
           <div className="flex justify-start justify-self-start md: text-xl">
