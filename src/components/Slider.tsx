@@ -43,7 +43,7 @@ export const Slider = (props: Props) => {
 
   return (
     <Slick
-      className="w-full h-full"
+      className="w-full h-full flex gap-2"
       autoplay={false}
       {...settings}
       autoplaySpeed={5000}
